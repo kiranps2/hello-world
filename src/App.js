@@ -1,12 +1,22 @@
 import logo from './logo.svg';
 import image from "./images/luffy.webp"
+import React, { useState } from 'react';
 
 import './App.css';
 
 function App() {
   let greetingStyle = {"color":"green"};
   let greeting = "Hello";
+  const [count, setCount] = useState(0);
+  
+  const handleClickenc = () => {
+    setCount(count + 1);
+  }
+  const handleClickdecr = () => {
+    setCount(count - 1);
+  }
   return (
+    <>
     <div>
     <h1 style={{color:"red"}}>Hello World</h1>
     <h1 style={greetingStyle}>{greeting}</h1>
@@ -30,7 +40,12 @@ function App() {
   <img src={image}/>
 
     </div>
-    
+    <div>
+      <p>Count: {count}</p>
+      <button onClick={handleClickenc}>Increment</button>
+      <button onClick={handleClickdecr}>decriment</button>
+    </div>
+    </>
   );
   
 }
